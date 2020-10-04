@@ -1,5 +1,6 @@
 package prime;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -41,5 +42,23 @@ class PrimeTest {
         assertTrue(Prime.isPrime(23));
         assertTrue(Prime.isPrime(89));
         assertTrue(Prime.isPrime(101));
+    }
+
+    @Test
+    void genPrimes_returns_a_stream_with_one_number_when_the_argument_is_2() {
+        assertArrayEquals(new int[]{2}, Prime.genPrimes(2).toArray());
+    }
+
+    @Test
+    void genPrimes_returns_the_expected_value() {
+        assertArrayEquals(new int[]{2, 3, 5, 7, 11, 13, 17}, Prime.genPrimes(17).toArray());
+    }
+
+    @Test
+    void genPrimes_returns_empty_stream_if_argument_is_less_than_2() {
+        assertArrayEquals(new int[]{}, Prime.genPrimes(1).toArray());
+        assertArrayEquals(new int[]{}, Prime.genPrimes(0).toArray());
+        assertArrayEquals(new int[]{}, Prime.genPrimes(-1).toArray());
+        assertArrayEquals(new int[]{}, Prime.genPrimes(-17).toArray());
     }
 }
