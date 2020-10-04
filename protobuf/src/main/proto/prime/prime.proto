@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package protobuf;
+option java_package = "com.romulojales.protobuf";
+option java_multiple_files = true;
+
+message PrimeRequest {
+  int32 argument = 1;
+}
+
+message PrimeResponse {
+  int32 prime_number = 1;
+}
+
+service PrimeServer {
+  rpc GenPrimes(PrimeRequest) returns ( stream PrimeResponse );
+}
