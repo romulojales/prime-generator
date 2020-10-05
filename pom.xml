@@ -12,6 +12,7 @@
     <modules>
         <module>prime-number-server</module>
         <module>protobuf</module>
+        <module>proxy-service</module>
     </modules>
 
     <properties>
