@@ -13,5 +13,5 @@ message PrimeResponse {
 }
 
 service PrimeServer {
-  rpc GenPrimes(PrimeRequest) returns ( stream PrimeResponse );
+  rpc GetPrimes(PrimeRequest) returns ( stream PrimeResponse );
 }
