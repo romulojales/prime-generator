@@ -50,7 +50,7 @@ class PrimeTest {
     }
 
     @Test
-    void genPrimes_returns_the_expected_value() {
+    void genPrimes_returns_the_expected_values_when_the_argument_is_17() {
         assertArrayEquals(new int[]{2, 3, 5, 7, 11, 13, 17}, Prime.generatePrimes(17).toArray());
     }
 
