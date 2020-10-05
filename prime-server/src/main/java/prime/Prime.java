@@ -8,7 +8,7 @@ public class Prime {
      * Generates the list of primes up to the given number.
      * If the given number is less than 2, then an empty stream will be generated.
      * */
-    static IntStream genPrimes(final int number) {
+    static IntStream generatePrimes(final int number) {
         IntStream nums = IntStream.rangeClosed(2, number);
         return nums.filter(Prime::isPrime);
     }

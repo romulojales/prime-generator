@@ -46,19 +46,19 @@ class PrimeTest {
 
     @Test
     void genPrimes_returns_a_stream_with_one_number_when_the_argument_is_2() {
-        assertArrayEquals(new int[]{2}, Prime.genPrimes(2).toArray());
+        assertArrayEquals(new int[]{2}, Prime.generatePrimes(2).toArray());
     }
 
     @Test
     void genPrimes_returns_the_expected_value() {
-        assertArrayEquals(new int[]{2, 3, 5, 7, 11, 13, 17}, Prime.genPrimes(17).toArray());
+        assertArrayEquals(new int[]{2, 3, 5, 7, 11, 13, 17}, Prime.generatePrimes(17).toArray());
     }
 
     @Test
     void genPrimes_returns_empty_stream_if_argument_is_less_than_2() {
-        assertArrayEquals(new int[]{}, Prime.genPrimes(1).toArray());
-        assertArrayEquals(new int[]{}, Prime.genPrimes(0).toArray());
-        assertArrayEquals(new int[]{}, Prime.genPrimes(-1).toArray());
-        assertArrayEquals(new int[]{}, Prime.genPrimes(-17).toArray());
+        assertArrayEquals(new int[]{}, Prime.generatePrimes(1).toArray());
+        assertArrayEquals(new int[]{}, Prime.generatePrimes(0).toArray());
+        assertArrayEquals(new int[]{}, Prime.generatePrimes(-1).toArray());
+        assertArrayEquals(new int[]{}, Prime.generatePrimes(-17).toArray());
     }
 }
