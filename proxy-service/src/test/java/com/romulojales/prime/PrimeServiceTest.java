@@ -29,7 +29,7 @@ class PrimeServiceTest {
     }
 
     @Test
-    void getPrimes() throws IOException {
+    void getPrimes_should_return_the_list_of_primes_on_the_happy_path_and_write_it_on_the_outstream() throws IOException {
 
         PrimeResponse response1 = PrimeResponse.newBuilder().setPrimeNumber(2).build();
         PrimeResponse response2 = PrimeResponse.newBuilder().setPrimeNumber(3).build();
