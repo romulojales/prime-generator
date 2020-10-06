@@ -19,6 +19,7 @@
         <module>prime-number-server</module>
         <module>protobuf</module>
         <module>proxy-service</module>
+        <module>integration-tests</module>
     </modules>
 
     <properties>
@@ -85,6 +86,11 @@
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.2</version>
+                <configuration>
+                    <excludes>
+                        <exclude>integration-tests</exclude>
+                    </excludes>
+                </configuration>
             </plugin>
         </plugins>
     </build>
