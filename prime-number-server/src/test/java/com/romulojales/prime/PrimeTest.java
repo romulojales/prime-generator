@@ -1,4 +1,4 @@
-package prime;
+package com.romulojales.prime;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;

@@ -1,20 +1,12 @@
-package prime;
+package com.romulojales.prime;
 
-import com.romulojales.protobuf.PrimeRequest;
 import com.romulojales.protobuf.PrimeResponse;
-import com.romulojales.protobuf.PrimeServerGrpc;
-import io.grpc.stub.StreamObserver;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 
-import java.io.BufferedOutputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.OutputStream;
-import java.util.Iterator;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;

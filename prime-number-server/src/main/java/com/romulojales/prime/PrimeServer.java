@@ -1,4 +1,4 @@
-package prime;
+package com.romulojales.prime;
 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;

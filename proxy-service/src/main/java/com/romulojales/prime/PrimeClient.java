@@ -1,4 +1,4 @@
-package prime;
+package com.romulojales.prime;
 
 import com.romulojales.protobuf.PrimeRequest;
 import com.romulojales.protobuf.PrimeResponse;

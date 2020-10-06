@@ -1,8 +1,5 @@
-package prime;
+package com.romulojales.prime;
 
-import com.romulojales.protobuf.PrimeRequest;
-import com.romulojales.protobuf.PrimeServerGrpc;
-import io.grpc.ManagedChannel;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;

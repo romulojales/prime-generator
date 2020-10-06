@@ -1,27 +1,17 @@
-package prime;
+package com.romulojales.prime;
 
 import com.romulojales.protobuf.PrimeRequest;
 import com.romulojales.protobuf.PrimeResponse;
-import com.romulojales.protobuf.PrimeServerGrpc;
-import io.grpc.ManagedChannel;
-import io.grpc.inprocess.InProcessChannelBuilder;
-import io.grpc.inprocess.InProcessServerBuilder;
 import io.grpc.stub.StreamObserver;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.MockitoAnnotations.initMocks;
 
 class PrimeServerImplTest {
 

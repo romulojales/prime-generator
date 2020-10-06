@@ -1,4 +1,4 @@
-package prime;
+package com.romulojales.prime;
 
 import java.util.stream.IntStream;
 
