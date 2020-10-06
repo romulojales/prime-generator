@@ -13,5 +13,6 @@ message PrimeResponse {
 }
 
 service PrimeServer {
+  // This rpc will throw an exception if the number is lower than 2.
   rpc GetPrimes(PrimeRequest) returns ( stream PrimeResponse );
 }
