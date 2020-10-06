@@ -9,8 +9,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.any;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
@@ -23,7 +22,7 @@ class PrimeServiceTest {
     private PrimeService primeService;
 
     @BeforeEach
-    void setUp(){
+    void setUp() {
         initMocks(this);
 
         primeService = new PrimeService(primeClient);

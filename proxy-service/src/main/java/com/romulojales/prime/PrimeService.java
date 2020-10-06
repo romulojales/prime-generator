@@ -1,16 +1,12 @@
 package com.romulojales.prime;
 
-import org.springframework.stereotype.Service;
-
 import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
 
-
-@Service
 public class PrimeService {
 
-    private PrimeClient primeClient;
+    final private PrimeClient primeClient;
 
     public PrimeService(PrimeClient primeClient) {
         this.primeClient = primeClient;

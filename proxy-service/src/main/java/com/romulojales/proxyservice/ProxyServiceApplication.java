@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean;
 import com.romulojales.prime.PrimeClient;
 import com.romulojales.prime.PrimeService;
 
-@SpringBootApplication(scanBasePackages = {"com.romulojales.prime"})
+@SpringBootApplication(scanBasePackages = "com.romulojales.prime")
 public class ProxyServiceApplication {
 
 	public static void main(String[] args) {
