@@ -1,11 +1,10 @@
 package com.romulojales.integrationtests;
 
+import io.restassured.RestAssured;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import io.restassured.RestAssured;
 
 import static com.jayway.jsonpath.matchers.JsonPathMatchers.hasJsonPath;
-
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
