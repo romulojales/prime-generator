@@ -1,27 +1,27 @@
 # prime-generator
 
-A very simple way of generate a list of prime numbers up to a given number. 
+A very simple way to create a list of prime numbers up to a given number. 
 
 # Discussion
 
 I've decided to keep all the code simple, but tested. 
-So I can iterate it by the time.
+So, I can iterate it by the time.
 
-First I have a dedicated component to create the prime numbers, it contains the
-a grpc server to provide the number to client, running in the port 9999. 
+First, I have created a component to provide the prime numbers. It contains the
+a grpc server running in the port 9999 to retrieve the numbers for a given client. 
 
 Then a proxy which connects with the prime number server and expose a rest interface to the web running in the 
 port 8080.
 
 Both, in localhost.
 
-All complexity and validation regarding creating and dealing with bad integers is on prime-number. 
+All complexity and validation regarding creating and dealing with bad integers are on prime-number. 
 
-The prime number generator is not **optimized**, and can cause problem of OoM or long wait time.
-Because I decided to keep it simple and delivery the value on the first iteration. Then, improve performance.
+The prime number generator is not **optimized**, and might have problems of OoM or long wait time if the argument is a big number.
+It is because I decided to keep it simple and delivery the value on the first iteration. Then, improve performance if necessary.
 
 Another opportunity of improvement is improve the resilience between the proxy and the prime-server. In a
-event of disconnection of the part, we need to restart both servers manually.
+event of disconnection, one will need to restart both servers manually.
 
 
 ## The web interface is:
