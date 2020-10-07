@@ -1,6 +1,7 @@
 package com.romulojales.prime;
 
 import com.romulojales.protobuf.PrimeResponse;
+import io.grpc.StatusRuntimeException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -10,6 +11,7 @@ import java.io.OutputStream;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
@@ -39,7 +41,21 @@ class PrimeServiceTest {
         when(primeClient.getPrimes(eq(5))).thenReturn(list.listIterator());
 
         StringBuilder data = new StringBuilder();
-        OutputStream outputStream = new OutputStream() {
+
+        primeService.getPrimes(getOutputStream(data), 5);
+
+        assertEquals("2,3,5.", data.toString());
+    }
+
+    @Test
+    void getPrimes_should_return_the_proper_exception_when_the_prime_server_returns_an_exception() throws IOException {
+        when(primeClient.getPrimes(eq(-1))).thenThrow(StatusRuntimeException.class);
+
+        assertThrows(InvalidArgumentException.class, () -> {primeService.getPrimes(getOutputStream(new StringBuilder()), -1);});
+    }
+
+    private OutputStream getOutputStream(StringBuilder data) {
+        return new OutputStream() {
             @Override
             public void write(int b) throws IOException {
                 // make the lint happy
@@ -50,8 +66,5 @@ class PrimeServiceTest {
                 data.append(new String(b));
             }
         };
-        primeService.getPrimes(outputStream, 5);
-
-        assertEquals("2,3,5.", data.toString());
     }
 }
