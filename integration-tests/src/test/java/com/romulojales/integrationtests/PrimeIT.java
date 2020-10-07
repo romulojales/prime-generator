@@ -4,6 +4,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import io.restassured.RestAssured;
 
+import static com.jayway.jsonpath.matchers.JsonPathMatchers.hasJsonPath;
+
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
@@ -26,7 +28,7 @@ public class PrimeIT {
     }
 
     @Test
-    void should_return_404_when_the_number_is_empty() {
+    void should_return_404_when_the_argument_is_empty() {
         given()
                 .when()
                 .get("/primes")
@@ -41,17 +43,40 @@ public class PrimeIT {
     }
 
     @Test
-    void should_return_400_when_the_number_is_not_a_number() {
+    void should_return_400_when_the_argument_is_not_a_number() {
         given()
+                .pathParam("number", "a")
                 .when()
-                .get("/primes/a")
+                .get("/primes/{number}")
                 .then()
                 .statusCode(400);
 
         given()
+                .pathParam("number", "d123")
                 .when()
-                .get("/primes/d123")
+                .get("/primes/{number}")
                 .then()
                 .statusCode(400);
+    }
+
+    @Test
+    void should_return_400_when_the_argument_is_not_a_valid_number() {
+        given()
+                .pathParam("number", "1")
+                .when()
+                .get("/primes/{number}")
+                .then()
+                .statusCode(400)
+                .contentType("application/json")
+                .body(hasJsonPath("message", equalTo("The received number: 1 is not valid.")));
+
+        given()
+                .pathParam("number", "-1")
+                .when()
+                .get("/primes/{number}")
+                .then()
+                .statusCode(400)
+                .contentType("application/json")
+                .body(hasJsonPath("$.message", equalTo("The received number: -1 is not valid.")));
     }
 }
