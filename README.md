@@ -100,7 +100,7 @@ If you get this message, that means you are good:
 
 open another terminal, go back to the root folder of the project, then 
 
-`cd proxy-server`
+`cd proxy-service`
 
 `mvn spring-boot:run`
 
